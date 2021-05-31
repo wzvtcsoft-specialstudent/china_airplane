@@ -1,0 +1,17 @@
+{
+    "xAxis": {
+        "type": "category",
+        "boundaryGap": false,
+        "data": ["1月", "6月", "12月"]
+      },
+      "yAxis": {
+        "type": "value"
+      },
+      "series": [
+        {
+          "data": [11, 23, 31],
+          "type": "line",
+          "areaStyle": {}
+        }
+      ]
+}

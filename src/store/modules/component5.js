@@ -1,0 +1,29 @@
+export default{
+    state:{
+       com5:{},
+       name5:'',
+       comto2:[],
+       maskShow:true
+    },
+    mutations:{
+        setcom5(state,user){
+            state.com5=user      
+        },
+        setname5(state,user){
+          state.name5='预测未来10天'+user+'吞吐量'     
+       },
+      setcomto2(state,user){
+        state.comto2=user      
+      },
+      setmaskShow(state,user){
+        state.maskShow=user      
+      },
+    },
+    actions:{},
+    getters:{
+      getcom5(state){
+        return state.com5
+      }
+    },
+    namespaced:true
+}

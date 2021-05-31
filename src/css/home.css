@@ -1,0 +1,477 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.box {
+  position: relative;
+  /* background-color: #07055d; */
+  display: flex;
+  padding: 0 30px;
+  /* width: 100%; */
+  height: 864px;
+  /* background: url(../assets/images/bg.jpg) no-repeat top center; */
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+
+.itxst {
+  position: relative;
+  /* margin: 10px auto; */
+  width: 50%;
+  float: left;
+  /* margin-right: 10px; */
+}
+
+.itxst div {
+  /* padding: 6px; */
+  /* background-color: #fdfdfd; */
+  /* border: solid 1px #eee; */
+  /* margin-bottom: 10px; */
+  cursor: move;
+}
+#msg {
+  clear: both;
+  width: 100%;
+}
+.change {
+  z-index: 999;
+  cursor: pointer;
+  position: absolute;
+  top: 300px;
+  left: -15px;
+}
+.show {
+  display: none;
+}
+.pa {
+  /* margin-left: 20px; */
+  padding-top: 240px;
+}
+#nav {
+  padding: 0;
+}
+.list-height1 {
+  height: 485px;
+}
+.list {
+  height: 100%;
+  width: 12%;
+  left: 50px;
+}
+#g1 {
+  flex: 1; 
+  overflow: hidden;
+  overflow: auto;
+  background-color: rgb(43, 36, 139);
+}
+.list::-webkit-scrollbar {
+  width: 10px;
+}
+.list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgb(151, 151, 151);
+  background: rgba(0, 0, 0, 0.2);
+}
+#g2 {
+  position: relative;
+  flex: 1;
+  margin-top: 8%;
+}
+#g3 {
+  position: relative;
+  flex: 2;
+  margin-top: 8%;
+  /* margin-left: 10px; */
+}
+#g4 {
+  position: relative;
+  flex: 1;
+  margin-top: 8%;
+  margin-left: -20px;
+}
+.biaot {
+  position: absolute;
+  width: 1519px;
+  height: 98px;
+  left: -405px;
+  top: -120px;
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  /* background-image: url(../assets/images/head_bg.png); */
+  background: url(../assets/images/标题头.png) no-repeat top center;
+}
+.biaot span {
+  position: absolute;
+  top: 25px;
+  left: 580px;
+}
+.bgpng {
+  position: absolute;
+  width: 1518px;
+  height: 80px;
+  top: -100px;
+  left: -405px;
+  background-color: rgba(227, 239, 255, 0.26);
+}
+.pic {
+  width: 95%;
+  height: 64.8%;
+  position: absolute;
+  top: 100;
+  left: 0;
+  background-image: url(../assets/images/line.png);
+}
+.pic1 {
+  width: 97%;
+  height: 32.2%;
+  position: absolute;
+  top: 0;
+  left: 0px;
+  background-image: url(../assets/images/line.png);
+}
+.pic2 {
+  position: relative;
+  width: 97%;
+  height: 32.2%;
+  position: absolute;
+  top: 250px;
+  left: 0px;
+  background-image: url(../assets/images/line.png);
+}
+.pic3 {
+  width: 100%;
+  height: 31.2%;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  background-image: url(../assets/images/line.png);
+}
+.pic4 {
+  width: 100%;
+  height: 31.2%;
+  position: absolute;
+  top: 33.6%;
+  left: 0;
+  background-image: url(../assets/images/line.png);
+  background-color: rgba(201, 201, 201, 0.11);
+}
+.rect {
+  position: absolute;
+  /* top: 20px;
+  left: -20px; */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left
+      top no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat;
+  background-size: 2px 20px, 20px 2px, 2px 20px, 20px 2px;
+}
+.rect1 {
+  position: absolute;
+  /* top: 20px;
+  left: -20px; */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left
+      top no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat;
+  background-size: 2px 20px, 20px 2px, 2px 20px, 20px 2px;
+}
+.rect2 {
+  position: absolute;
+  /* top: 20px;
+  left: -20px; */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left
+      top no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat;
+  background-size: 2px 20px, 20px 2px, 2px 20px, 20px 2px;
+}
+.rect3 {
+  position: absolute;
+  /* top: 20px;
+  left: -20px; */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left
+      top no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) right top
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat,
+    linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom
+      no-repeat;
+  background-size: 2px 20px, 20px 2px, 2px 20px, 20px 2px;
+}
+.pic5 {
+  width: 100%;
+  height: 27%;
+  position: absolute;
+  top: 67.2%;
+  background-image: url(../assets/images/line.png);
+  background-color: rgba(201, 201, 201, 0.11);
+}
+.pic6 {
+  width: 737px;
+  height: 180px;
+  position: absolute;
+  top: 200px;
+  right: 0;
+}
+.pic7 {
+  width: 350px;
+  height: 2300px;
+  position: absolute;
+  top: 380px;
+  right: 0;
+}
+.pic9{
+  position: absolute;
+  width: 97%;
+  height: 32.2%;
+  left: 0px;
+  top: 0px;
+}
+.pic11 {
+  width: 145%;
+  height: 27%;
+  position: absolute;
+  top: 67.2%;
+  left: -50%;
+  margin-left: 0px
+}
+.pic12 {
+  width: 145%;
+  height: 27%;
+  position: absolute;
+  top: 67.2%;
+  left: -50%;
+}
+.pic13 {
+  width: 145%;
+  height: 27%;
+  position: absolute;
+  top: 67.2%;
+  left: -50%;
+}
+.pic14 {
+  width: 145%;
+  height: 27%;
+  position: absolute;
+  top: 67.2%;
+  left: -50%;
+}
+.right-top {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  margin-top: 400px;
+  width: 30px;
+  height: 30px;
+  /* background-color: rgb(169, 235, 255); */
+  background: url(../assets/images/开.png);
+  background-size: 30px 30px;
+  border-radius: 5px;
+  line-height: 50px;
+  cursor: pointer;
+}
+.right-top1 {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  margin-top: 400px;
+  width: 30px;
+  height: 30px;
+  /* background-color: rgb(169, 235, 255); */
+  background: url(../assets/images/收.png);
+  background-size: 30px 30px;
+  border-radius: 5px;
+  line-height: 50px;
+  cursor: pointer;
+}
+.g1-post {
+  z-index: 999;
+  position: absolute;
+  margin-top: 0px;
+}
+/* ==============背景样式============== */
+.map {
+  /* position: absolute; */
+  height: 49.125rem;
+  margin: auto;
+}
+.w-full,
+.hfull {
+  position: absolute;
+  /* margin: auto; */
+  width: 100%;
+  height: 100%;
+  left: -0.12%;
+  top: -0.2%;
+}
+.map .map1 {
+  width: 40.475rem;
+  height: 40.475rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: url(../assets/images/map.png);
+  background-size: 100% 100%;
+  opacity: 0.3;
+}
+.map .map2 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42.0375rem;
+  height: 42.0375rem;
+  background: url(../assets/images/lbx.png);
+  animation: rotate1 15s linear infinite;
+  opacity: 0.6;
+  background-size: 100% 100%;
+}
+.map .map3 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 41.075rem;
+  height: 41.075rem;
+  background: url(../assets/images/jt.png);
+  animation: rotate2 10s linear infinite;
+  opacity: 0.6;
+  background-size: 100% 100%;
+}
+.map .chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10.125rem;
+}
+@keyframes rotate1 {
+  form {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotate2 {
+  form {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+.gpic4{
+  display: none;
+}
+.gpic6{
+  display: none;
+}
+.mask{
+  width: 350px;
+  height: 240px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0,0.7);
+  z-index: 100;
+  font-size: 25px;
+  font-family: "宋体";
+  text-align: center;
+  line-height: 220px;
+  color: red;
+}
+.maskShow{
+  display: none;
+}
+
+.left-class{
+   position: relative;
+}
+.g1Top{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: rgba(0, 0, 0,0.6);
+  text-align: center;
+  line-height: 200px;
+  font-size: 20px;
+  font-family: "宋体";
+  color: white;
+}
+.g1s{
+  display: none;
+}
+.g1s1{
+  display: none;
+}
+.g1s2{
+  display: none;
+}
+.g1s3{
+  display: none;
+}
+.g1s4{
+  display: none;
+}
+.g1s5{
+  display: none;
+}

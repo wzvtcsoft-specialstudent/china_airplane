@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: 150px;
+            background: linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left top no-repeat,
+                linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left top no-repeat,
+                linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right top no-repeat,
+                linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) right top no-repeat,
+                linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom no-repeat,
+                linear-gradient(to bottom, rgb(0, 162, 255), rgb(0, 162, 255)) left bottom no-repeat,
+                linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom no-repeat,
+                linear-gradient(to left, rgb(0, 162, 255), rgb(0, 162, 255)) right bottom no-repeat;
+            background-size: 2px 20px, 20px 2px, 2px 20px, 20px 2px;
+        }
+        .bule {
+            width: 200px;
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.26);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rect">
+        <div class="bule"></div>
+    </div>
+</body>
+
+</html>

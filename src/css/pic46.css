@@ -1,0 +1,36 @@
+.zhu {
+    position: relative;
+}
+.pic3 {
+    position: absolute;
+}
+.btn1 {
+  position: absolute;
+  z-index: 999;
+  width: 50px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 25px/15px;
+  border: 5px solid rgb(59, 151, 255);
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 20px rgb(120, 194, 255) inset;
+}
+.btn1:hover {
+  width: 50px;
+  height: 30px;
+  border-radius: 15px/25px;
+  border: 5px solid rgb(59, 151, 255);
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(255, 255, 255);
+  box-shadow: 0 0 20px rgb(255, 255, 255) inset;
+  cursor: pointer;
+}
+.contactsbg{
+  box-shadow: 0 0 20px rgb(255, 255, 255) inset;
+  border-radius: 15px/25px;
+}
+.contactsbgOne{
+  box-shadow: 0 0 20px rgb(255, 255, 255) inset;
+  border-radius: 15px/25px;
+}

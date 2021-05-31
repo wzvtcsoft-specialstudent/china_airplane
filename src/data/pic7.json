@@ -1,0 +1,37 @@
+[{
+        "route": "ABB-CBG-FBF",
+        "gocity": "ABB",
+        "arrivecity": "FBF",
+        "people": "11862"
+    },
+    {
+        "route": "ADD-FEC",
+        "gocity": "ADD",
+        "arrivecity": "FEC",
+        "people": "9453"
+    },
+    {
+        "route": "ABB-CBG-FBF",
+        "gocity": "ABB",
+        "arrivecity": "FBF",
+        "people": "11862"
+    },
+    {
+        "route": "ABB-CBG-FBF",
+        "gocity": "ADD",
+        "arrivecity": "FEC",
+        "people": "9453"
+    },
+    {
+        "route": "ADD-FEC",
+        "gocity": "ADD",
+        "arrivecity": "FEC",
+        "people": "9453"
+    },
+    {
+        "route": "ADD-FEC",
+        "gocity": "ADD",
+        "arrivecity": "FEC",
+        "people": "9453"
+    }
+]

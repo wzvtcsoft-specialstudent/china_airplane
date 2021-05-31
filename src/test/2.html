@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    vm = {
+        name: '张三',
+        a: {
+            b: "111",
+            c: {
+                d: "222",
+            }
+        }
+    }
+    car = {
+        color: 'red',
+        brand: 'FERRALLY'
+    }
+    // var zsname = ""
+    function defineReactive(obj,key,val){
+        var val = null;
+    Object.defineProperty(obj,key, {
+        get: function () {
+            return val;
+        },
+        set: function (newVal) {
+            val = newVal;
+            console.log("你设置了对象的"+key+"."+"的新值"+newVal);
+        }
+    });
+}
+
+function defineReactiveDeep(obj, key, val ) {
+    defineReactive(obj, key, val)
+    if(typeof val === 'object') {
+        Object.keys(val).forEach(function (k) {
+            defineReactiveDeep(val, k, val[k])
+        });
+    }
+}
+</script>
+
+<body>
+
+</body>
+
+</html>

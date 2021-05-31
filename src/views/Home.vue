@@ -1,0 +1,317 @@
+<template>
+  <div class="box">
+    <!-- 背景模块 -->
+    <!-- <div class="map">
+      <div class="map1"></div>
+      <div class="map2"></div>
+      <div class="map3"></div>
+    </div> -->
+    <iframe
+      class="w-full h-full"
+      seamless=""
+      ng-src="https://www.idataviz.com/dataradar3D.html"
+      src="https://www.idataviz.com/dataradar3D.html"
+    ></iframe>
+    <div
+      class="right-top"
+      @click="flexible"
+      :class="{ 'right-top1': (active = cla) }"
+    ></div>
+    <div id="g1" class="list g1-post" :class="{ show: val }">
+      <div class="item left-class" data-id="0">
+        <div class="g1Top" :class="{ g1s: g1sShow }">已用</div>
+        <img src="../assets/image/11.png" style="width: 100%; height: 200px" />
+      </div>
+      <div class="item left-class" data-id="1">
+        <div class="g1Top" :class="{ g1s1: g1sShow1 }">已用</div>
+        <img src="../assets/image/12.png" style="width: 100%; height: 200px" />
+      </div>
+      <div class="item left-class" data-id="2">
+        <div class="g1Top" :class="{ g1s2: g1sShow2 }">已用</div>
+        <img src="../assets/image/13.png" style="width: 100%; height: 200px" />
+      </div>
+      <div class="item left-class" data-id="3">
+        <div class="g1Top" :class="{ g1s3: g1sShow3 }">已用</div>
+        <img src="../assets/image/14.png" style="width: 100%; height: 200px" />
+      </div>
+      <div class="item left-class" data-id="4">
+        <div class="g1Top" :class="{ g1s4: g1sShow4 }">已用</div>
+        <img src="../assets/image/15.png" style="width: 100%; height: 200px" />
+      </div>
+      <div class="item left-class" data-id="5">
+        <div class="g1Top" :class="{ g1s5: g1sShow5 }">已用</div>
+        <img src="../assets/image/16.png" style="width: 100%; height: 200px" />
+      </div>
+    </div>
+    <div id="g2" class="itxst pa list-height1">
+      <!-- <span class="change" @click="click">|||</span> -->
+      <div class="pic1 item" data-id="1" v-if="picVal1">
+        <div class="rect1">
+          <pic1 class=""></pic1>
+        </div>
+      </div>
+      <div class="pic9 item" data-id="9" v-if="picVal9">
+        <div class="rect1">
+          <pic9 class=""></pic9>
+        </div>
+      </div>
+
+      <div class="pic2">
+        <div class="mask" :class="{ maskShow: maskBl }">暂无数据</div>
+        <div class="rect1">
+          <pic2 class="" data-id="2"></pic2>
+        </div>
+      </div>
+    </div>
+    <div id="g3">
+      <div class="biaot"><span>机场航线、航班与旅客量预测</span></div>
+      <div class="pic">
+        <div class="rect2">
+          <pic3 class="" data-id="3"></pic3>
+        </div>
+      </div>
+      <div class="pic11 item" data-id="4" v-if="picVal4">
+        <div class="rect3">
+          <pic4 class="" data-id="4"></pic4>
+        </div>
+      </div>
+      <div class="pic12 item" data-id="6" v-if="picVal6">
+        <div class="rect3">
+          <pic6 class="" data-id="6"></pic6>
+        </div>
+      </div>
+      <div class="pic13 item" data-id="10" v-if="picVal10">
+        <div class="rect3">
+          <pic10 class="" data-id="10"></pic10>
+        </div>
+      </div>
+      <div class="pic14 item" data-id="11" v-if="picVal11">
+        <div class="rect3">
+          <pic11 class="" data-id="11"></pic11>
+        </div>
+      </div>
+      <!-- <div class="pic13">
+        <but class="left-class" data-id="7"></but>
+      </div> -->
+    </div>
+    <div id="g4">
+      <div class="pic3">
+        <div class="rect">
+          <pic5 class="" data-id="5"></pic5>
+        </div>
+      </div>
+      <div class="pic4">
+        <div class="rect">
+          <pic7 class="" data-id="5"></pic7>
+        </div>
+      </div>
+      <div class="pic5">
+        <div class="rect">
+          <pic8 class="" data-id="5"></pic8>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<script>
+import Sortable from "sortablejs";
+import pic1 from "../pages/pic1";
+import pic2 from "../pages/pic2";
+import pic3 from "../pages/pic3";
+import pic4 from "../pages/pic4";
+import pic5 from "../pages/pic5";
+import pic6 from "../pages/pic6";
+import pic7 from "../pages/pic7";
+import pic8 from "../pages/pic8";
+import pic9 from "../pages/pic9";
+import pic10 from "../pages/pic10";
+import pic11 from "../pages/pic11";
+import "../css/home.css";
+export default {
+  name: "Home",
+  mounted() {
+    this.pull();
+  },
+  data() {
+    return {
+      val: true,
+      picVal1: true,
+      picVal9: false,
+      picVal4: false,
+      picVal6: true,
+      picVal10: false,
+      picVal11: false,
+      maskBl: true,
+      ////////////////////////////////////
+      g1sShow: false,
+      g1sShow1: true,
+      g1sShow2: false,
+      g1sShow3: true,
+      g1sShow4: true,
+      g1sShow5: true,
+      cla: false,
+    };
+  },
+  components: {
+    pic1,
+    pic2,
+    pic3,
+    pic4,
+    pic5,
+    pic6,
+    pic7,
+    pic8,
+    pic9,
+    pic10,
+    pic11,
+  },
+  methods: {
+    click() {
+      this.val = !this.val;
+    },
+    pull() {
+      //第一组
+      var moveItemId = -1;
+      var g1 = document.getElementById("g1");
+      var ops1 = {
+        animation: 1000,
+        draggable: ".item",
+        //*******************************************************
+        //*********A组内的元素不允许排序,但是可以拖动到B组*******
+        //*******************************************************
+        sort: false,
+        group: {
+          name: "it",
+          pull: false,
+        },
+        //拖动结束
+        // onEnd: function (evt) {
+        //   // console.log(evt);
+        //   //获取拖动后的排序
+        //   // var arr = sortable2.toArray();
+        //   // document.getElementById("msg").innerHTML = "A组排序结果：" + JSON.stringify(arr);
+        //   // console.log(JSON.stringify(arr));
+        // },
+        onEnd: (evt) => {
+          //  var index=evt.oldIndex;
+          var index = evt.clone.getAttribute("data-id");
+          ////////////////////////////////////////////////
+          var arr2 = sortable2.toArray().length;
+          var arr3 = sortable3.toArray().length;
+          ///////////////////
+          if (index == 0 && arr3 == 0) {
+            this.picVal6 = true;
+            this.g1sShow = false;
+          } else if (index == 1 && arr3 == 0) {
+            this.picVal4 = true;
+            this.g1sShow1 = false;
+          } else if (index == 2 && arr2 == 0) {
+            this.picVal1 = true;
+            this.g1sShow2 = false;
+          } else if (index == 3 && arr2 == 0) {
+            this.picVal9 = true;
+            this.g1sShow3 = false;
+          } else if (index == 4 && arr3 == 0) {
+            this.picVal10 = true;
+            this.g1sShow4 = false;
+          } else if (index == 5 && arr3 == 0) {
+            this.picVal11 = true;
+            this.g1sShow5 = false;
+          }
+        },
+      };
+      var sortable1 = Sortable.create(g1, ops1);
+
+      //第二组
+      var g2 = document.getElementById("g2");
+      var ops2 = {
+        animation: 1000,
+        draggable: ".item",
+        //*******************************************************
+        //*********A组内的元素不允许排序,但是可以拖动到B组*******
+        //*******************************************************
+        sort: false,
+        group: {
+          name: "it",
+          pull: false,
+        },
+        //拖动结束
+        // onEnd: function (evt) {
+        //   // console.log(evt);
+        //   //获取拖动后的排序
+        //   // var arr = sortable2.toArray();
+        //   // document.getElementById("msg").innerHTML = "A组排序结果：" + JSON.stringify(arr);
+        //   //  console.log(JSON.stringify(arr));
+        // },
+        onEnd: (evt) => {
+          var index = evt.clone.getAttribute("data-id");
+          // console.log(index);
+          if (index == 1) {
+            this.picVal1 = false;
+            this.g1sShow2 = true;
+          } else if (index == 9) {
+            this.picVal9 = false;
+            this.g1sShow3 = true;
+          }
+        },
+      };
+      var sortable2 = Sortable.create(g2, ops2);
+      //第三组
+      var g3 = document.getElementById("g3");
+      var ops3 = {
+        animation: 1000,
+        draggable: ".item",
+        //*******************************************************
+        //********* B组内的元素允许排序,也可以拖动到A组   *******
+        //*******************************************************
+        sort: false,
+        group: {
+          name: "it",
+          pull: false,
+        },
+        //拖动结束
+        // onEnd: function (evt) {
+        //   // console.log(evt);
+        //   //获取拖动后的排序
+        //   // var arr = sortable3.toArray();
+        //   // document.getElementById("msg").innerHTML ="B组排序结果："+ JSON.stringify(arr);
+        // },
+        onEnd: (evt) => {
+          var index = evt.clone.getAttribute("data-id");
+          if (index == 4) {
+            this.picVal4 = false;
+            this.g1sShow1 = true;
+            console.log(this.g1sShow);
+          } else if (index == 6) {
+            this.picVal6 = false;
+            this.g1sShow = true;
+          } else if (index == 10) {
+            this.picVal10 = false;
+            this.g1sShow4 = true;
+          } else if (index == 11) {
+            this.picVal11 = false;
+            this.g1sShow5 = true;
+          }
+        },
+      };
+      var sortable3 = Sortable.create(g3, ops3);
+    },
+    flexible() {
+      this.val = !this.val;
+      this.cla = !this.cla;
+    },
+  },
+  watch: {
+    "$store.state.component5.maskShow"() {
+      this.maskBl = this.$store.state.component5.maskShow;
+      console.log(this.maskBl);
+    },
+  },
+};
+</script>
+
+
+   <style>
+</style>
