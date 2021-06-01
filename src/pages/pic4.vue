@@ -6,7 +6,7 @@
       class="btn1"
       @click="btn(5)"
       style="left: 250px"
-      :class="line == 5 ? 'contactsbgOne' : ''"
+      :class="line == 5 ? 'contactsbg' : ''"
     >
       5
     </button>
@@ -15,7 +15,7 @@
       class="btn1"
       @click="btn(6)"
       style="left: 310px"
-      :class="line == 6 ? 'contactsbgOne' : ''"
+      :class="line == 6 ? 'contactsbg' : ''"
     >
       6
     </button>
@@ -24,7 +24,7 @@
       class="btn1"
       @click="btn(7)"
       style="left: 370px"
-      :class="line == 7 ? 'contactsbgOne' : ''"
+      :class="line == 7 ? 'contactsbg' : ''"
     >
       7
     </button>
@@ -33,7 +33,7 @@
       class="btn1"
       @click="btn(8)"
       style="left: 430px"
-      :class="line == 8 ? 'contactsbgOne' : ''"
+      :class="line == 8 ? 'contactsbg' : ''"
     >
       8
     </button>
@@ -42,7 +42,7 @@
       class="btn1"
       @click="btn(9)"
       style="left: 490px"
-      :class="line == 9 ? 'contactsbgOne' : ''"
+      :class="line == 9 ? 'contactsbg' : ''"
     >
       9
     </button>
@@ -51,11 +51,11 @@
       class="btn1"
       @click="btn(10)"
       style="left: 550px"
-      :class="line == 10 ? 'contactsbgOne' : ''"
+      :class="line == 10 ? 'contactsbg' : ''"
     >
       10
     </button>
-    <div id="pic3" style="width: 100%; height: 200%"></div>
+    <div id="pic12" style="width: 100%; height: 100%"></div>
   </div>
   <!-- </div> -->
 </template>
@@ -68,36 +68,40 @@ export default {
   // name: "app",
   data() {
     return {
-      line: -1,
+      line: 5,
       title: [],
     };
   },
   mounted() {
+    this.line = this.$store.state.component8.linexx;
+
     this.title = [];
-    this.title.push(this.nameOne + "客座率");
-    this.title.push(this.nameOne + "总旅客量");
+    this.title.push(this.nameOne + "运营收入");
+    this.title.push(this.nameOne + "旅客量");
+
+    // this.title.push(this.nameOne + "test");
 
     this.drawChart();
-    this.line = this.$store.state.component8.linex;
+    // this.line=this.$store.state.component8.linexx
   },
   computed: {
     ...mapState("component8", [
-      "dataOne_a",
-      "dataOne_b",
-      "dataOne_c_filter",
-      "linex",
+      "dataTwo_a",
+      "dataTwo_b",
+      "dataTwo_c",
+      "linexx",
       "nameOne",
     ]),
   },
   methods: {
     drawChart() {
-      const myChart = this.$echarts.init(document.getElementById("pic3"));
+      const myChart = this.$echarts.init(document.getElementById("pic12"));
       const option = {
         backgroundColor: "rgba(100,100,100,0.2)",
         grid: {
           top: "25%",
           bottom: "15%",
-          left: "5%",
+          left: "8%",
           right: "7%",
         },
         toolbox: {
@@ -160,7 +164,7 @@ export default {
         },
 
         legend: {
-          data: this.title, //数据["总旅客量", "客坐率"]
+          data: this.title, //数据[ "客坐率","旅客量"]
           top: "5%",
           right: "5%",
           textStyle: {
@@ -169,7 +173,7 @@ export default {
           },
         },
         xAxis: {
-          data: ["区域1","区域2","区域3","区域1","区域2","区域3","区域1","区域2","区域3"], //////x的值["区域1","区域2","区域3"]
+          data: this.dataTwo_a, //////x的值["区域1","区域2","区域3"]
           axisLine: {
             show: true, //隐藏X轴轴线
             lineStyle: {
@@ -237,7 +241,6 @@ export default {
             axisTick: {
               show: false,
             },
-            max: 100,
             axisLine: {
               show: false,
             },
@@ -253,7 +256,7 @@ export default {
         ],
         series: [
           {
-            name: this.nameOne + "客座率", //"客坐率"
+            name: this.nameOne + "运营收入", //"运营收入"
             type: "line",
             yAxisIndex: 1, //使用的 y 轴的 index，在单个图表实例中存在多个 y轴的时候有用
             smooth: true, //平滑曲线显示
@@ -286,10 +289,10 @@ export default {
                 },
               ]),
             },
-            data: [67,95,84,26,48,56], /////百分比 [67,95,84,26,48,56]
+            data:this.dataTwo_b, /////百分比 [67,95,84,26,48,56]
           },
           {
-            name: this.nameOne + "总旅客量", // "总旅客量"
+            name: this.nameOne + "旅客量", // "旅客量"
             type: "bar",
             barWidth: 15,
             itemStyle: {
@@ -305,111 +308,134 @@ export default {
                 borderWidth: 1,
               },
             },
-            data: [10000,16548,65486,84652,98746,56854], ////////////y的值[10000,16548,65486,84652,98746,56854]
+            data: this.dataTwo_c, ////////////y的值[10000,16548,65486,84652,98746,56854]
           },
         ],
       };
       myChart.setOption(option);
-
-      ////////////////
-      //    myChart.setOption({
-      //   yAxis: {
-      //     type: "category",
-      //     data: (this.com3||{}).flight,
-      //   },
-      //   series: [
-      //     {
-      //       name: "起降架次",
-      //       type: "bar",
-      //       data: (this.com3||{}).sortie,
-      //     },
-      //     {
-      //       name: "吞吐量",
-      //       type: "bar",
-      //       data: (this.com3||{}).throughput,
-      //     },
-      //   ],
-      // });
     },
     btn(index) {
       this.line = index;
-      let config = {
+      // let config = {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      // };
+      // let formData = new FormData();
+      // //参数
+      // // var str = this.flight + " " + this.company;
+      // // console.log(str);
+
+      // formData.append("month", index);
+
+      // this.$indicator.open({ text: "加载中..." });
+      // // this.$http.get("http://127.0.0.1:8080/pic8.json")
+      // this.$http
+      //   .post("http://192.168.193.209:8000/index/", formData, config)
+      //   .then((res) => {
+      //     this.$indicator.close();
+      //     var store = res.data;
+      //     var dataOne = store[0];
+      //     var dataTwo = store[1];
+      //     ///////////////////////////////////////////////////////////////
+      //     var dataOne_a = [];
+      //     var dataOne_b = [];
+      //     var dataOne_c = [];
+      //     // console.log(store);
+      //     for (let index = 0; index < dataOne.length; index++) {
+      //       dataOne_a.push(dataOne[index][0]);
+      //       dataOne_b.push(dataOne[index][1]);
+      //       dataOne_c.push(dataOne[index][2]);
+      //     }
+
+      //     // console.log(dataOne_c);
+      //     var dataOne_c_filter = [];
+      //     // console.log(dataOne_c);
+      //     for (let index = 0; index < dataOne_c.length; index++) {
+      //       var str = dataOne_c[index].replace("%", "");
+      //       var str = parseFloat(str);
+      //       dataOne_c_filter.push(str);
+      //     }
+      //     // console.log(store);
+
+      //     /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //     var dataTwo_a = [];
+      //     var dataTwo_b = [];
+      //     for (let index = 0; index < dataTwo.length; index++) {
+      //       dataTwo_a.push(dataTwo[index][0]);
+      //       dataTwo_b.push(dataTwo[index][1]);
+      //       // dataTwo_c.push(dataThree[index][1]);
+      //     }
+
+      //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //     this.$store.commit("component8/setdataOne_a", dataOne_a);
+      //     this.$store.commit("component8/setdataOne_b", dataOne_b);
+      //     this.$store.commit("component8/setdataOne_c", dataOne_c_filter);
+      //     //////////////////////////////////
+      //     this.$store.commit("component8/setdataTwo_a", dataTwo_a);
+      //     this.$store.commit("component8/setdataTwo_b", dataTwo_b);
+      //     this.$store.commit("component8/setlinexx", index);
+      //   });
+     let config = {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       };
       let formData = new FormData();
-      // var str = this.flight + " " + this.company;
+      var str = this.flight;
       // console.log(str);
 
       formData.append("month", index);
 
       this.$indicator.open({ text: "加载中..." });
       // this.$http.get("http://127.0.0.1:8080/pic8.json")
-      this.$http
-        .post("http://192.168.193.209:8000/index/", formData, config)
+      this.$http.post("http://192.168.193.209:8000/index/", formData, config)
         .then((res) => {
           this.$indicator.close();
           var store = res.data;
-          var dataOne = store[0];
+          // var dataOne = store[0];
           var dataTwo = store[1];
-          ///////////////////////////////////////////////////////////////
-          var dataOne_a = [];
-          var dataOne_b = [];
-          var dataOne_c = [];
-          // console.log(store);
-          for (let index = 0; index < dataOne.length; index++) {
-            dataOne_a.push(dataOne[index][0]);
-            dataOne_b.push(dataOne[index][1]);
-            dataOne_c.push(dataOne[index][2]);
-          }
-
-          // console.log(dataOne_c);
-          var dataOne_c_filter = [];
-          // console.log(dataOne_c);
-          for (let index = 0; index < dataOne_c.length; index++) {
-            var str = dataOne_c[index].replace("%", "");
-            var str = parseFloat(str);
-            dataOne_c_filter.push(str);
-          }
-          // console.log(store);
-
           /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
           var dataTwo_a = [];
           var dataTwo_b = [];
+          var dataTwo_c = [];
+          // var dataTwo_c = [];
+          // console.log(store);
           for (let index = 0; index < dataTwo.length; index++) {
             dataTwo_a.push(dataTwo[index][0]);
             dataTwo_b.push(dataTwo[index][1]);
+            dataTwo_c.push(dataTwo[index][2]);
             // dataTwo_c.push(dataThree[index][1]);
           }
-
-          /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-          this.$store.commit("component8/setdataOne_a", dataOne_a);
-          this.$store.commit("component8/setdataOne_b", dataOne_b);
-          this.$store.commit("component8/setdataOne_c", dataOne_c_filter);
-          //////////////////////////////////
+          //////////////////////////////////////////////////////////////////        
+          ///////////////////////////////////////////////////////////////////////////////////////////////////////////// 
           this.$store.commit("component8/setdataTwo_a", dataTwo_a);
           this.$store.commit("component8/setdataTwo_b", dataTwo_b);
-          this.$store.commit("component8/setlinex", index);
+          this.$store.commit("component8/setdataTwo_c", dataTwo_c);
+
         });
     },
   },
   watch: {
-    "$store.state.component8.dataOne_a"() {
+    "$store.state.component8.dataTwo_a"() {
       this.title = [];
-      this.title.push(this.nameOne + "客座率");
-      this.title.push(this.nameOne + "总旅客量");
+      this.title.push(this.nameOne + "运营收入");
+      this.title.push(this.nameOne + "旅客量");
 
       this.drawChart();
       //  console.log(this.dataOne_c_filter);
     },
-    "$store.state.component8.linex"() {
-      this.line = this.linex;
+    "$store.state.component8.linexx"() {
+      this.line = this.linexx;
     },
   },
 };
 </script>
 
 <style>
+.zhu {
+  width: 100%;
+  height: 100%;
+}
 </style>

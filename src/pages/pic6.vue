@@ -55,7 +55,7 @@
     >
       10
     </button>
-    <div id="pic3" style="width: 100%; height: 200%"></div>
+    <div id="pic3" style="width: 100%; height: 100%"></div>
   </div>
   <!-- </div> -->
 </template>
@@ -75,8 +75,8 @@ export default {
   mounted() {
     this.title = [];
     this.title.push(this.nameOne + "客座率");
-    this.title.push(this.nameOne + "总旅客量");
-    this.title.push("123456")
+    this.title.push(this.nameOne + "座公里");
+    this.title.push("客公里")
 
     this.drawChart();
     this.line = this.$store.state.component8.linex;
@@ -84,8 +84,9 @@ export default {
   computed: {
     ...mapState("component8", [
       "dataOne_a",
-      "dataOne_b",
-      "dataOne_c_filter",
+      "dataOne_b_filter",
+      "dataOne_c",
+      "dataOne_d",
       "linex",
       "nameOne",
     ]),
@@ -170,7 +171,7 @@ export default {
           },
         },
         xAxis: {
-          data: ["区域1","区域2","区域3","区域1","区域2","区域3","区域1","区域2","区域3"], //////x的值["区域1","区域2","区域3"]
+          data:this.dataOne_a, //////x的值["区域1","区域2","区域3"]
           axisLine: {
             show: true, //隐藏X轴轴线
             lineStyle: {
@@ -316,12 +317,12 @@ export default {
                 },
               ]),
             },
-            data: [67,95,84,26,48,56], /////百分比 [67,95,84,26,48,56]
+            data: this.dataOne_b_filter, /////百分比 [67,95,84,26,48,56]
           },
           {
-            name: this.nameOne + "总旅客量", // "总旅客量"
+            name: this.nameOne + "座公里", // "总旅客量"
             type: "bar",
-            barWidth: 15,
+            barWidth: 8,
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -335,12 +336,12 @@ export default {
                 borderWidth: 1,
               },
             },
-            data: [10000,16548,65486,84652,98746,56854], ////////////y的值[10000,16548,65486,84652,98746,56854]
+            data:this.dataOne_c, ////////////y的值[10000,16548,65486,84652,98746,56854]
           },
           {
-            name: "123456", // "总旅客量"
+            name: "客公里", // "总旅客量"
             type: "bar",
-            barWidth: 15,
+            barWidth: 8,
             itemStyle: {
               normal: {
                 color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -354,7 +355,7 @@ export default {
                 borderWidth: 1,
               },
             },
-            data: [10000,16548,65486,84652,98746,56854], ////////////y的值[10000,16548,65486,84652,98746,56854]
+            data: this.dataOne_d, ////////////y的值[10000,16548,65486,84652,98746,56854]
           },
         ],
       };
@@ -382,65 +383,117 @@ export default {
     },
     btn(index) {
       this.line = index;
-      let config = {
+      // let config = {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      // };
+      // let formData = new FormData();
+      // // var str = this.flight + " " + this.company;
+      // // console.log(str);
+
+      // formData.append("month", index);
+
+      // this.$indicator.open({ text: "加载中..." });
+      // // this.$http.get("http://127.0.0.1:8080/pic8.json")
+      // this.$http.post("http://192.168.193.209:8000/index/", formData, config)
+      //   .then((res) => {
+      //     this.$indicator.close();
+      //     var store = res.data;
+      //     var dataOne = store[0];
+      //     var dataTwo = store[1];
+      //     ///////////////////////////////////////////////////////////////
+      //     var dataOne_a = [];
+      //     var dataOne_b = [];
+      //     var dataOne_c = [];
+      //     // console.log(store);
+      //     for (let index = 0; index < dataOne.length; index++) {
+      //       dataOne_a.push(dataOne[index][0]);
+      //       dataOne_b.push(dataOne[index][1]);
+      //       dataOne_c.push(dataOne[index][2]);
+      //     }
+
+      //     // console.log(dataOne_c);
+      //     var dataOne_c_filter = [];
+      //     // console.log(dataOne_c);
+      //     for (let index = 0; index < dataOne_c.length; index++) {
+      //       var str = dataOne_c[index].replace("%", "");
+      //       var str = parseFloat(str);
+      //       dataOne_c_filter.push(str);
+      //     }
+      //     // console.log(store);
+
+      //     /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //     var dataTwo_a = [];
+      //     var dataTwo_b = [];
+      //     for (let index = 0; index < dataTwo.length; index++) {
+      //       dataTwo_a.push(dataTwo[index][0]);
+      //       dataTwo_b.push(dataTwo[index][1]);
+      //       // dataTwo_c.push(dataThree[index][1]);
+      //     }
+
+      //     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //     this.$store.commit("component8/setdataOne_a", dataOne_a);
+      //     this.$store.commit("component8/setdataOne_b", dataOne_b);
+      //     this.$store.commit("component8/setdataOne_c", dataOne_c_filter);
+      //     //////////////////////////////////
+      //     this.$store.commit("component8/setdataTwo_a", dataTwo_a);
+      //     this.$store.commit("component8/setdataTwo_b", dataTwo_b);
+      //     this.$store.commit("component8/setlinex", index);
+      //   });
+       let config = {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       };
       let formData = new FormData();
-      // var str = this.flight + " " + this.company;
+      var str = this.flight;
       // console.log(str);
 
       formData.append("month", index);
 
       this.$indicator.open({ text: "加载中..." });
       // this.$http.get("http://127.0.0.1:8080/pic8.json")
-      this.$http
-        .post("http://192.168.193.209:8000/index/", formData, config)
+      this.$http.post("http://192.168.193.209:8000/index/", formData, config)
         .then((res) => {
           this.$indicator.close();
           var store = res.data;
           var dataOne = store[0];
-          var dataTwo = store[1];
+          // var dataThree = store[2];
+          // var dataFore = store[3];
+
           ///////////////////////////////////////////////////////////////
           var dataOne_a = [];
           var dataOne_b = [];
           var dataOne_c = [];
+          var dataOne_d = [];
           // console.log(store);
           for (let index = 0; index < dataOne.length; index++) {
             dataOne_a.push(dataOne[index][0]);
             dataOne_b.push(dataOne[index][1]);
             dataOne_c.push(dataOne[index][2]);
+            dataOne_d.push(dataOne[index][3]);
           }
-
           // console.log(dataOne_c);
-          var dataOne_c_filter = [];
+          var dataOne_b_filter = [];
           // console.log(dataOne_c);
-          for (let index = 0; index < dataOne_c.length; index++) {
-            var str = dataOne_c[index].replace("%", "");
+          for (let index = 0; index < dataOne_b.length; index++) {
+            var str = dataOne_b[index].replace("%", "");
             var str = parseFloat(str);
-            dataOne_c_filter.push(str);
+            dataOne_b_filter.push(str);
           }
           // console.log(store);
-
-          /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-          var dataTwo_a = [];
-          var dataTwo_b = [];
-          for (let index = 0; index < dataTwo.length; index++) {
-            dataTwo_a.push(dataTwo[index][0]);
-            dataTwo_b.push(dataTwo[index][1]);
-            // dataTwo_c.push(dataThree[index][1]);
-          }
-
+          ////////////////////////////////////////////////////////////////////////////////////////////////////////
+           
           /////////////////////////////////////////////////////////////////////////////////////////////////////////////
           this.$store.commit("component8/setdataOne_a", dataOne_a);
-          this.$store.commit("component8/setdataOne_b", dataOne_b);
-          this.$store.commit("component8/setdataOne_c", dataOne_c_filter);
-          //////////////////////////////////
-          this.$store.commit("component8/setdataTwo_a", dataTwo_a);
-          this.$store.commit("component8/setdataTwo_b", dataTwo_b);
+          // this.$store.commit("component8/setdataOne_b", dataOne_b);
+          this.$store.commit("component8/setdataOne_b", dataOne_b_filter);
+          this.$store.commit("component8/setdataOne_c", dataOne_c);
+          this.$store.commit("component8/setdataOne_d", dataOne_d);
           this.$store.commit("component8/setlinex", index);
+          //////////////////////////////////
         });
     },
   },
@@ -448,8 +501,8 @@ export default {
     "$store.state.component8.dataOne_a"() {
       this.title = [];
       this.title.push(this.nameOne + "客座率");
-      this.title.push(this.nameOne + "总旅客量");
-      this.title.push("123456")
+      this.title.push(this.nameOne + "座公里");
+      this.title.push("客公里")
 
       this.drawChart();
       //  console.log(this.dataOne_c_filter);

@@ -129,7 +129,7 @@ export default {
             obj.flight = store[index][0];
             obj.company = store[index][1];
             obj.average = store[index][2];
-            obj.max = store[index][3];
+            // obj.max = store[index][3];
             list.push(obj);
           }
 

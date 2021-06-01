@@ -6,12 +6,12 @@
       <div class="map2"></div>
       <div class="map3"></div>
     </div> -->
-    <iframe
+    <!-- <iframe
       class="w-full h-full"
       seamless=""
       ng-src="https://www.idataviz.com/dataradar3D.html"
       src="https://www.idataviz.com/dataradar3D.html"
-    ></iframe>
+    ></iframe> -->
     <div
       class="right-top"
       @click="flexible"
