@@ -55,7 +55,7 @@
     >
       10
     </button>
-    <div id="pic3" style="width: 100%; height: 100%"></div>
+    <div id="pic3" style="width: 100%; height: 200%"></div>
   </div>
   <!-- </div> -->
 </template>
@@ -76,6 +76,7 @@ export default {
     this.title = [];
     this.title.push(this.nameOne + "客座率");
     this.title.push(this.nameOne + "总旅客量");
+    this.title.push("123456")
 
     this.drawChart();
     this.line = this.$store.state.component8.linex;
@@ -169,7 +170,7 @@ export default {
           },
         },
         xAxis: {
-          data: this.dataOne_a, //////x的值["区域1","区域2","区域3"]
+          data: ["区域1","区域2","区域3","区域1","区域2","区域3","区域1","区域2","区域3"], //////x的值["区域1","区域2","区域3"]
           axisLine: {
             show: true, //隐藏X轴轴线
             lineStyle: {
@@ -225,6 +226,35 @@ export default {
           },
           {
             type: "value",
+            /*name: "亿元",*/
+            nameTextStyle: {
+              color: "#ebf8ac",
+              fontSize: 6,
+            },
+            splitLine: {
+              show: false,
+            },
+            axisTick: {
+              show: true,
+            },
+            axisLine: {
+              show: true,
+              lineStyle: {
+                color: "#26D9FF",
+                width: 1,
+              },
+            },
+            axisLabel: {
+              show: true,
+              formatter: "{value} %",
+              textStyle: {
+                color: "rgba(250,250,250,1)",
+                fontSize: 12,
+              },
+            },
+          },
+          {
+            type: "value",
             /*name: "同比",*/
             nameTextStyle: {
               color: "#ebf8ac",
@@ -243,7 +273,7 @@ export default {
             },
             axisLabel: {
               show: true,
-              formatter: "{value} %", //右侧Y轴文字显示
+              formatter: "{value}", //右侧Y轴文字显示
               textStyle: {
                 color: "rgba(250,250,250,1)",
                 fontSize: 11,
@@ -286,7 +316,7 @@ export default {
                 },
               ]),
             },
-            data: this.dataOne_c_filter, /////百分比 [67,95,84,26,48,56]
+            data: [67,95,84,26,48,56], /////百分比 [67,95,84,26,48,56]
           },
           {
             name: this.nameOne + "总旅客量", // "总旅客量"
@@ -305,7 +335,26 @@ export default {
                 borderWidth: 1,
               },
             },
-            data: this.dataOne_b, ////////////y的值[10000,16548,65486,84652,98746,56854]
+            data: [10000,16548,65486,84652,98746,56854], ////////////y的值[10000,16548,65486,84652,98746,56854]
+          },
+          {
+            name: "123456", // "总旅客量"
+            type: "bar",
+            barWidth: 15,
+            itemStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "rgba(215,197,243,1)" },
+                  { offset: 1, color: "rgba(215,197,243,0)" },
+                ]),
+                borderColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: "rgba(180,240,255,1)" },
+                  { offset: 1, color: "rgba(215,197,243,1)" },
+                ]),
+                borderWidth: 1,
+              },
+            },
+            data: [10000,16548,65486,84652,98746,56854], ////////////y的值[10000,16548,65486,84652,98746,56854]
           },
         ],
       };
@@ -400,6 +449,7 @@ export default {
       this.title = [];
       this.title.push(this.nameOne + "客座率");
       this.title.push(this.nameOne + "总旅客量");
+      this.title.push("123456")
 
       this.drawChart();
       //  console.log(this.dataOne_c_filter);
