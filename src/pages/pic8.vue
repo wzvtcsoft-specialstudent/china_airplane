@@ -16,7 +16,7 @@
             v-for="(item, index) in record"
             :key="index"
             :class="line == index ? 'contactsbg' : ''"
-            @click="listen(item.flight, item.company, index)"
+            @click="listen(item.flight, index)"
           >
             <td style="width:50%">{{ item.flight }}</td>
             <td>{{ item.company }}</td>
@@ -36,7 +36,7 @@ export default {
     return {
       record: [],
       flight: "",
-      company: "",
+      // company: "",
       line: -1,
     };
   },
@@ -45,9 +45,9 @@ export default {
   },
   created() {},
   methods: {
-    listen(val1, val2, index) {
+    listen(val1, index) {
       this.flight = val1;
-      this.company = val2;
+      // this.company = val2;
       this.line = index;
       this.$store.commit("component7/setlinex",index);
     },
@@ -80,14 +80,14 @@ export default {
     "$store.state.component7.linex"(){
         this.line=this.linex
     },
-    company(newVal) {
+    flight(newVal) {
       let config = {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       };
       let formData = new FormData();
-      var str = this.flight + " " + this.company;
+      var str = this.flight;
       // console.log(str);
 
       formData.append("airline_flt_number", str);
@@ -107,20 +107,21 @@ export default {
           var dataOne_a = [];
           var dataOne_b = [];
           var dataOne_c = [];
+          var dataOne_d = [];
           // console.log(store);
           for (let index = 0; index < dataOne.length; index++) {
             dataOne_a.push(dataOne[index][0]);
             dataOne_b.push(dataOne[index][1]);
             dataOne_c.push(dataOne[index][2]);
+            dataOne_d.push(dataOne[index][3]);
           }
-
           // console.log(dataOne_c);
-          var dataOne_c_filter = [];
+          var dataOne_b_filter = [];
           // console.log(dataOne_c);
-          for (let index = 0; index < dataOne_c.length; index++) {
-            var str = dataOne_c[index].replace("%", "");
+          for (let index = 0; index < dataOne_b.length; index++) {
+            var str = dataOne_b[index].replace("%", "");
             var str = parseFloat(str);
-            dataOne_c_filter.push(str);
+            dataOne_b_filter.push(str);
           }
           // console.log(store);
 
@@ -128,11 +129,13 @@ export default {
 
           var dataTwo_a = [];
           var dataTwo_b = [];
+          var dataTwo_c = [];
           // var dataTwo_c = [];
           // console.log(store);
           for (let index = 0; index < dataTwo.length; index++) {
             dataTwo_a.push(dataTwo[index][0]);
             dataTwo_b.push(dataTwo[index][1]);
+            dataTwo_c.push(dataTwo[index][2]);
             // dataTwo_c.push(dataThree[index][1]);
           }
 
@@ -145,14 +148,17 @@ export default {
           // }
           // console.log(dataTwo_c_filter);
           //////////////////////////////////////////////////////////////////
-
+           
           /////////////////////////////////////////////////////////////////////////////////////////////////////////////
           this.$store.commit("component8/setdataOne_a", dataOne_a);
-          this.$store.commit("component8/setdataOne_b", dataOne_b);
-          this.$store.commit("component8/setdataOne_c", dataOne_c_filter);
+          // this.$store.commit("component8/setdataOne_b", dataOne_b);
+          this.$store.commit("component8/setdataOne_b", dataOne_b_filter);
+          this.$store.commit("component8/setdataOne_c", dataOne_c);
+          this.$store.commit("component8/setdataOne_d", dataOne_d);
           //////////////////////////////////
           this.$store.commit("component8/setdataTwo_a", dataTwo_a);
           this.$store.commit("component8/setdataTwo_b", dataTwo_b);
+          this.$store.commit("component8/setdataTwo_c", dataTwo_c);
           // this.$store.commit("component8/setdataTwo_c", dataTwo_c_filter);
           //////////////////////////////////
           this.$store.commit("component8/setlinex",5);

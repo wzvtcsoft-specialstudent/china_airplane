@@ -4,7 +4,7 @@
 }
 .box {
   position: relative;
-  /* background-color: #07055d; */
+  background-color: #07055d;
   display: flex;
   padding: 0 30px;
   /* width: 100%; */

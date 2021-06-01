@@ -277,8 +277,7 @@ export default {
       this.$indicator.open({ text: "加载中..." });
       //实际参数接口post（"http://192.168.193.65:8000/index/", formData, config）
       // this.$http.get("http://127.0.0.1:8080/pic5.json")
-      this.$http
-        .post("http://192.168.193.209:8000/index/", formData, config)
+      this.$http.post("http://192.168.193.209:8000/index/", formData, config)
         .then((res) => {
           this.$indicator.close();
           var store = res.data;

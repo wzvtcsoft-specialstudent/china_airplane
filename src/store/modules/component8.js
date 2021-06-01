@@ -1,12 +1,13 @@
 export default{
     state:{
         dataOne_a:[],
-        dataOne_b:[],
-        dataOne_c_filter:[],
+        dataOne_b_filter:[],
+        dataOne_c:[],
+        dataOne_d:[],
         /////////////////////////////////
         dataTwo_a:[],
         dataTwo_b:[],
-        dataTwo_c_filter:[],
+        dataTwo_c:[],
         /////////////////////////////////
         dataFore:[],
         ////////////////////////////////
@@ -21,10 +22,13 @@ export default{
             state.dataOne_a=user      
         },
         setdataOne_b(state,user){
-            state.dataOne_b=user      
+            state.dataOne_b_filter=user      
         },
         setdataOne_c(state,user){
-            state.dataOne_c_filter=user      
+            state.dataOne_c=user      
+        },
+        setdataOne_d(state,user){
+            state.dataOne_d=user      
         },
         ///////////////////////////////////
 
@@ -35,7 +39,7 @@ export default{
             state.dataTwo_b=user      
         },
         setdataTwo_c(state,user){
-            state.dataTwo_c_filter=user      
+            state.dataTwo_c=user      
         },
         ////////////////////////////
         
