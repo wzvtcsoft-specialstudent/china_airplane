@@ -1,6 +1,6 @@
 <template>
   <!-- <div id="app"> -->
-  <div id="pic1" style="width: 100%; height: 100%"></div>
+  <div id="pic1" style="width: 100%; height: 100%" @dblclick='dblclick()'></div>
   <!-- </div> -->
 </template>
 
@@ -261,6 +261,9 @@ export default {
     },
     fresh(){
       this.$emit('pic5Fresh');
+    },
+    dblclick(){
+      this.$emit('pic5Dblclick');
     } 
   },
   watch: {

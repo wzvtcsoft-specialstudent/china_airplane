@@ -475,9 +475,16 @@
 .g1s5{
   display: none;
 }
-.p1{
+.oTop{
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+  top:150px;
+  left:330px;
+  width:840px;
+  height: 400px;
+  /* background-color: rgb(0, 162, 255); */
+  z-index: 1;
+}
+.p1{
+  width: 840px;
+  height: 400px;
 }

@@ -1,6 +1,6 @@
 <template>
   <!-- <div id="app"> -->
-  <div id="pic5" style="width: 100%; height: 100%" @click='select()'></div>
+  <div id="pic5" style="width: 100%; height: 100%" @click='select()' @dblclick='dblclick()'></div>
   <!-- </div> -->
 </template>
 
@@ -235,6 +235,9 @@ export default {
     },
     select(){
        this.$emit('showCityName');
+    },
+    dblclick(){
+      this.$emit('pic1Dblclick');
     }
   },
 };

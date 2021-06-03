@@ -43,11 +43,26 @@
         <img src="../assets/image/16.png" style="width: 100%; height: 200px" />
       </div>
     </div>
+    <div class="oTop">
+      <div class="p1" v-if="p1">
+        <pic1></pic1>
+      </div>
+      <div class="p1" v-if="p5">
+        <pic5></pic5>
+      </div>
+      <div class="p1" v-if="p7">
+        <pic7></pic7>
+      </div>
+      <div class="p1" v-if="p8">
+        <pic8></pic8>
+      </div>
+      
+    </div>
     <div id="g2" class="itxst pa list-height1">
       <!-- <span class="change" @click="click">|||</span> -->
       <div class="pic1 item" data-id="1" v-if="picVal1">
         <div class="rect1">
-          <pic1 class="" @showCityName="updateCity"></pic1>
+          <pic1 class="" @showCityName="updateCity" @pic1Dblclick="pic1dblclick()"></pic1>
         </div>
       </div>
       
@@ -98,17 +113,17 @@
     <div id="g4">
       <div class="pic3">
         <div class="rect">
-          <pic5 class="" data-id="5" @pic5Click="Click()" @pic5Mouseover="Mouseover()" @pic5Fresh="Fresh()"></pic5>
+          <pic5 class="" data-id="5" @pic5Click="Click()" @pic5Mouseover="Mouseover()" @pic5Fresh="Fresh()" @pic5Dblclick="pic5dblclick()"></pic5>
         </div>
       </div>
       <div class="pic4">
         <div class="rect">
-          <pic7 class="" data-id="5" @pic7Click="Click()" @pic7Mouseover="Mouseover()" @pic7Fresh="Fresh()"></pic7>
+          <pic7 class="" data-id="5" @pic7Click="Click()" @pic7Mouseover="Mouseover()" @pic7Fresh="Fresh()" @pic7Dblclick="pic7dblclick()"></pic7>
         </div>
       </div>
       <div class="pic5">
         <div class="rect">
-          <pic8 class="" data-id="5" @pic8Click="Click()" @pic8Mouseover="Mouseover()" @pic8Fresh="Fresh()"></pic8>
+          <pic8 class="" data-id="5" @pic8Click="Click()" @pic8Mouseover="Mouseover()" @pic8Fresh="Fresh()" @pic8Dblclick="pic8dblclick()"></pic8>
         </div>
       </div>  
     </div>
@@ -156,6 +171,11 @@ export default {
       g1sShow4: true,
       g1sShow5: true,
       cla: false,
+      ////////////////////////////////////
+      p1:false,
+      p5:false,
+      p7:false,
+      p8:false,
     };
   },
   components: {
@@ -320,6 +340,19 @@ export default {
     Fresh(){
       console.log("Fresh");
       this.$refs.audioTwo.play();
+    },
+    //////
+    pic1dblclick(){
+       this.p1=true
+    },
+    pic5dblclick(){
+       this.p5=true
+    },
+    pic7dblclick(){
+       this.p7=true
+    },
+    pic8dblclick(){
+      this.p8=true
     }
   },
   watch: {

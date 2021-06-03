@@ -1,5 +1,5 @@
 <template>
-  <div id="tab">
+  <div id="tab" @dblclick='dblclick()'>
     <table class="top">
       <thead>
         <tr>
@@ -82,7 +82,10 @@ export default {
     },
     fresh(){
       this.$emit('pic7Fresh');
-    } 
+    },
+    dblclick(){
+      this.$emit('pic7Dblclick');
+    }  
   },
   watch: {
     "$store.state.component5.com5"() {
