@@ -43,7 +43,8 @@
         <img src="../assets/image/16.png" style="width: 100%; height: 200px" />
       </div>
     </div>
-    <div class="oTop">
+    <div class="oTop" v-if="oTopShow">
+      <div class="oTopBtn" @click="close()"></div>
       <div class="p1" v-if="p1">
         <pic1></pic1>
       </div>
@@ -55,8 +56,7 @@
       </div>
       <div class="p1" v-if="p8">
         <pic8></pic8>
-      </div>
-      
+      </div>   
     </div>
     <div id="g2" class="itxst pa list-height1">
       <!-- <span class="change" @click="click">|||</span> -->
@@ -176,6 +176,7 @@ export default {
       p5:false,
       p7:false,
       p8:false,
+      oTopShow:false
     };
   },
   components: {
@@ -330,29 +331,46 @@ export default {
       // console.log("hello");
     },
     Click(){
-      console.log("click");
       this.$refs.audio.play();
     },
     Mouseover(){
-      console.log("mouseover");
       this.$refs.audioOne.play();
     },
     Fresh(){
-      console.log("Fresh");
       this.$refs.audioTwo.play();
     },
     //////
     pic1dblclick(){
        this.p1=true
+       this.p5=false
+       this.p7=false
+       this.p8=false
+       this.oTopShow=true
     },
     pic5dblclick(){
        this.p5=true
+       this.p1=false
+       this.p7=false
+       this.p8=false
+       this.oTopShow=true
     },
     pic7dblclick(){
        this.p7=true
+       this.p1=false
+       this.p5=false
+       this.p8=false
+       this.oTopShow=true
     },
     pic8dblclick(){
       this.p8=true
+      this.p1=false
+      this.p7=false
+      this.p5=false
+      this.oTopShow=true
+    },
+    close(){
+      console.log('11');
+       this.oTopShow=false
     }
   },
   watch: {
