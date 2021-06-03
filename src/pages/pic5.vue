@@ -221,17 +221,16 @@ export default {
       myChart.setOption(option);
 
       myChart.on("click", (map)=>{
-        //  console.log(map.name)
-        //写点击之后进行的操作////////////////////////////////////////////
-        // myChart.setOption(option)
         var str = map.name;
         this.namex = str.substring(4, 7);
         ///////////////////////////////
         checkName = map.name;
-        // console.log(checkName);
         myChart.setOption(option);
-        // console.log("123");
-        // console.log(this.namex);
+        ////////////////////
+        this.click()
+      });
+      myChart.on("mouseover", (map)=>{
+        this.mouseover()
       });
 
       //////////////////////
@@ -254,6 +253,15 @@ export default {
       //   ],
       // });
     },
+    click(){
+       this.$emit('pic5Click');
+    },
+    mouseover(){
+       this.$emit('pic5Mouseover');
+    },
+    fresh(){
+      this.$emit('pic5Fresh');
+    } 
   },
   watch: {
     "$store.state.component3.com3"() {
@@ -309,8 +317,8 @@ export default {
 
           this.$store.commit("component5/setcom5", list);
           this.$store.commit("component5/setname5", newVal);
-          // console.log(this.com5);
-          // console.log(list);
+          
+          this.fresh()
         });
     },
   },

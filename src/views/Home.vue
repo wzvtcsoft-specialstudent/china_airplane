@@ -47,9 +47,10 @@
       <!-- <span class="change" @click="click">|||</span> -->
       <div class="pic1 item" data-id="1" v-if="picVal1">
         <div class="rect1">
-          <pic1 class=""></pic1>
+          <pic1 class="" @showCityName="updateCity"></pic1>
         </div>
       </div>
+      
       <div class="pic9 item" data-id="9" v-if="picVal9">
         <div class="rect1">
           <pic9 class=""></pic9>
@@ -67,7 +68,7 @@
       <div class="biaot"><span>机场航线、航班与旅客量预测</span></div>
       <div class="pic">
         <div class="rect2">
-          <pic3 class="" data-id="3"></pic3>
+          <pic3 class="" data-id="3" @pic3Fresh="Fresh()"></pic3>
         </div>
       </div>
       <div class="pic11 item" data-id="4" v-if="picVal4">
@@ -97,20 +98,23 @@
     <div id="g4">
       <div class="pic3">
         <div class="rect">
-          <pic5 class="" data-id="5"></pic5>
+          <pic5 class="" data-id="5" @pic5Click="Click()" @pic5Mouseover="Mouseover()" @pic5Fresh="Fresh()"></pic5>
         </div>
       </div>
       <div class="pic4">
         <div class="rect">
-          <pic7 class="" data-id="5"></pic7>
+          <pic7 class="" data-id="5" @pic7Click="Click()" @pic7Mouseover="Mouseover()" @pic7Fresh="Fresh()"></pic7>
         </div>
       </div>
       <div class="pic5">
         <div class="rect">
-          <pic8 class="" data-id="5"></pic8>
+          <pic8 class="" data-id="5" @pic8Click="Click()" @pic8Mouseover="Mouseover()" @pic8Fresh="Fresh()"></pic8>
         </div>
-      </div>
+      </div>  
     </div>
+    <audio ref="audio" src="../mp3/mouseOver.mp3"></audio>
+    <audio ref="audioOne" src="../mp3/enterServer.mp3"></audio>
+    <audio ref="audioTwo" src="../mp3/enterLol.mp3"></audio>
   </div>
 </template>
 
@@ -302,6 +306,21 @@ export default {
       this.val = !this.val;
       this.cla = !this.cla;
     },
+    updateCity(){
+      // console.log("hello");
+    },
+    Click(){
+      console.log("click");
+      this.$refs.audio.play();
+    },
+    Mouseover(){
+      console.log("mouseover");
+      this.$refs.audioOne.play();
+    },
+    Fresh(){
+      console.log("Fresh");
+      this.$refs.audioTwo.play();
+    }
   },
   watch: {
     "$store.state.component5.maskShow"() {
