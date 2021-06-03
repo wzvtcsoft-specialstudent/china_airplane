@@ -123,7 +123,7 @@ export default {
             color: "#fff",
             fontSize: 14,
           },
-          top: "2%",
+          top: "4%",
           left: "center",
         },
         graphic: {
@@ -155,7 +155,7 @@ export default {
           top: "bottom",
           textStyle: {
             color: "#fff",
-            fontSize: 9,
+            fontSize: 11,
           },
           // itemGap: 20,
         },

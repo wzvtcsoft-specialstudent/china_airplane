@@ -55,6 +55,9 @@ export default {
   background-color: rgba(255, 255, 255, 0.11);
   color: rgb(194, 226, 255);
 }
+.wen:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+}
 .load {
   position: relative;
   left: -60px;
