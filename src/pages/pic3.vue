@@ -357,7 +357,7 @@ export default {
           roam: true,
           itemStyle: {
             normal: {
-              areaColor: 'rgba(0,0,0,.8)',
+              areaColor: 'rgba(50,50,50,.3)',
               borderColor: '#195BB9',
               borderWidth: 1,
               width: 50,

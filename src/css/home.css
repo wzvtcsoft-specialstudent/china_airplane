@@ -54,6 +54,7 @@
   height: 485px;
 }
 .list {
+  z-index: 10;
   height: 100%;
   width: 12%;
   left: 50px;
@@ -69,7 +70,7 @@
 }
 .list::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 5px rgb(151, 151, 151);
+  box-shadow: inset 0 0 5px rgb(151, 151, 151);
   background: rgba(0, 0, 0, 0.2);
 }
 #g2 {
@@ -275,6 +276,7 @@
 }
 .pic9{
   position: absolute;
+  background-image: url(../assets/images/line.png);
   width: 97%;
   height: 32.2%;
   left: 0px;

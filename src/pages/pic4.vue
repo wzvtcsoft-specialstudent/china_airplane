@@ -5,7 +5,7 @@
       id="1"
       class="btn1"
       @click="btn(5)"
-      style="left: 250px"
+      style="left: 6%"
       :class="line == 5 ? 'contactsbg' : ''"
     >
       5
@@ -14,7 +14,7 @@
       id="2"
       class="btn1"
       @click="btn(6)"
-      style="left: 310px"
+      style="left: 11%"
       :class="line == 6 ? 'contactsbg' : ''"
     >
       6
@@ -23,7 +23,7 @@
       id="3"
       class="btn1"
       @click="btn(7)"
-      style="left: 370px"
+      style="left: 16%"
       :class="line == 7 ? 'contactsbg' : ''"
     >
       7
@@ -32,7 +32,7 @@
       id="4"
       class="btn1"
       @click="btn(8)"
-      style="left: 430px"
+      style="left: 21%"
       :class="line == 8 ? 'contactsbg' : ''"
     >
       8
@@ -41,7 +41,7 @@
       id="5"
       class="btn1"
       @click="btn(9)"
-      style="left: 490px"
+      style="left: 26%"
       :class="line == 9 ? 'contactsbg' : ''"
     >
       9
@@ -50,7 +50,7 @@
       id="6"
       class="btn1"
       @click="btn(10)"
-      style="left: 550px"
+      style="left: 31%"
       :class="line == 10 ? 'contactsbg' : ''"
     >
       10

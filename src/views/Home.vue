@@ -6,12 +6,11 @@
       <div class="map2"></div>
       <div class="map3"></div>
     </div> -->
-    <!-- <iframe
+    <iframe
       class="w-full h-full"
       seamless=""
-      ng-src="https://www.idataviz.com/dataradar3D.html"
-      src="https://www.idataviz.com/dataradar3D.html"
-    ></iframe> -->
+      src="background/test.html"
+    ></iframe>
     <div
       class="right-top"
       @click="flexible"
@@ -145,9 +144,8 @@
         </div>
       </div>  
     </div>
-    <audio ref="audio" src="../mp3/mouseOver.mp3"></audio>
-    <audio ref="audioOne" src="../mp3/enterServer.mp3"></audio>
-    <audio ref="audioTwo" src="../mp3/enterLol.mp3"></audio>
+
+  
   </div>
 </template>
 
@@ -166,6 +164,7 @@ import pic9 from "../pages/pic9";
 import pic10 from "../pages/pic10";
 import pic11 from "../pages/pic11";
 import "../css/home.css";
+import upld from "./upload"
 export default {
   name: "Home",
   mounted() {
@@ -215,6 +214,7 @@ export default {
     pic9,
     pic10,
     pic11,
+    upld,
   },
   methods: {
     click() {

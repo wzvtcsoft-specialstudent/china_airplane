@@ -292,7 +292,7 @@ export default {
 }
 .btn {
   position: absolute;
-  z-index: 990;
+  z-index: 5;
   font-size: 1px;
   border: 1px solid rgb(0, 110, 255);
   background-color: rgb(0, 87, 158);
@@ -304,7 +304,7 @@ export default {
 }
 .btn:hover {
   position: absolute;
-  z-index: 999;
+  z-index: 5;
   font-size: 1px;
   border: 1px solid rgb(0, 110, 255);
   background-color: rgb(68, 146, 209);
