@@ -477,3 +477,26 @@
 .g1s5{
   display: none;
 }
+.oTop{
+  position: relative;
+  position: absolute;
+  top:150px;
+  left:330px;
+  width:840px;
+  height: 400px;
+  /* background-color: rgb(0, 162, 255); */
+  z-index: 1;
+}
+.p1{
+  width: 840px;
+  height: 400px;
+}
+.oTopBtn{
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 20px;
+   height: 20px;
+   background:red;
+   z-index: 999;
+}

@@ -1,9 +1,8 @@
 <template>
   <!-- <div id="app"> -->
-  <div id="pic5" style="width: 100%; height: 100%"></div>
+  <div id="pic5" style="width: 100%; height: 100%" @click='select()' @dblclick='dblclick()'></div>
   <!-- </div> -->
 </template>
-
 
 <script>
 export default {
@@ -233,6 +232,12 @@ export default {
         this.circle=dataName
         this.drawChart()
       });
+    },
+    select(){
+       this.$emit('showCityName');
+    },
+    dblclick(){
+      this.$emit('pic1Dblclick');
     }
   },
 };

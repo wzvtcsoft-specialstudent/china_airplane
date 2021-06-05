@@ -1,6 +1,6 @@
 export default{
     state:{
-       com5:{},
+       com5:[],
        name5:'',
        comto2:[],
        maskShow:true

@@ -42,23 +42,57 @@
         <img src="../assets/image/16.png" style="width: 100%; height: 200px" />
       </div>
     </div>
+    <div class="oTop" v-if="oTopShow">
+      <div class="oTopBtn" @click="close()"></div>
+      <div class="p1" v-if="p1">
+        <pic1></pic1>
+      </div>
+      <div class="p1" v-if="p2">
+        <pic2></pic2>
+      </div>
+      <div class="p1" v-if="p4">
+        <pic4></pic4>
+      </div>
+      <div class="p1" v-if="p5">
+        <pic5></pic5>
+      </div>
+      <div class="p1" v-if="p6">
+        <pic6></pic6>
+      </div>
+      <div class="p1" v-if="p7">
+        <pic7></pic7>
+      </div>
+      <div class="p1" v-if="p8">
+        <pic8></pic8>
+      </div>
+        <div class="p1" v-if="p9">
+        <pic9></pic9>
+      </div> 
+        <div class="p1" v-if="p10">
+        <pic10></pic10>
+      </div> 
+        <div class="p1" v-if="p11">
+        <pic11></pic11>
+      </div>    
+    </div>
     <div id="g2" class="itxst pa list-height1">
       <!-- <span class="change" @click="click">|||</span> -->
       <div class="pic1 item" data-id="1" v-if="picVal1">
         <div class="rect1">
-          <pic1 class=""></pic1>
+          <pic1 class="" @showCityName="updateCity" @pic1Dblclick="pic1dblclick()"></pic1>
         </div>
       </div>
+      
       <div class="pic9 item" data-id="9" v-if="picVal9">
         <div class="rect1">
-          <pic9 class=""></pic9>
+          <pic9 class="" @pic9Dblclick="pic9dblclick()"></pic9>
         </div>
       </div>
 
       <div class="pic2">
         <div class="mask" :class="{ maskShow: maskBl }">暂无数据</div>
         <div class="rect1">
-          <pic2 class="" data-id="2"></pic2>
+          <pic2 class="" data-id="2" @pic2Dblclick="pic2dblclick()"></pic2>
         </div>
       </div>
     </div>
@@ -66,27 +100,27 @@
       <div class="biaot"><span>机场航线、航班与旅客量预测</span></div>
       <div class="pic">
         <div class="rect2">
-          <pic3 class="" data-id="3"></pic3>
+          <pic3 class="" data-id="3" @pic3Fresh="Fresh()"></pic3>
         </div>
       </div>
       <div class="pic11 item" data-id="4" v-if="picVal4">
         <div class="rect3">
-          <pic4 class="" data-id="4"></pic4>
+          <pic4 class="" data-id="4" @pic4Dblclick="pic4Dblclick()"></pic4>
         </div>
       </div>
       <div class="pic12 item" data-id="6" v-if="picVal6">
         <div class="rect3">
-          <pic6 class="" data-id="6"></pic6>
+          <pic6 class="" data-id="6" @pic6Dblclick="pic6Dblclick()"></pic6>
         </div>
       </div>
       <div class="pic13 item" data-id="10" v-if="picVal10">
         <div class="rect3">
-          <pic10 class="" data-id="10"></pic10>
+          <pic10 class="" data-id="10" @pic10Dblclick="pic10dblclick()"></pic10>
         </div>
       </div>
       <div class="pic14 item" data-id="11" v-if="picVal11">
         <div class="rect3">
-          <pic11 class="" data-id="11"></pic11>
+          <pic11 class="" data-id="11" @pic11Dblclick="pic11dblclick()"></pic11>
         </div>
       </div>
       <!-- <div class="pic13">
@@ -96,21 +130,22 @@
     <div id="g4">
       <div class="pic3">
         <div class="rect">
-          <pic5 class="" data-id="5"></pic5>
+          <pic5 class="" data-id="5" @pic5Click="Click()" @pic5Mouseover="Mouseover()" @pic5Fresh="Fresh()" @pic5Dblclick="pic5dblclick()"></pic5>
         </div>
       </div>
       <div class="pic4">
         <div class="rect">
-          <pic7 class="" data-id="5"></pic7>
+          <pic7 class="" data-id="5" @pic7Click="Click()" @pic7Mouseover="Mouseover()" @pic7Fresh="Fresh()" @pic7Dblclick="pic7dblclick()"></pic7>
         </div>
       </div>
       <div class="pic5">
         <div class="rect">
-          <pic8 class="" data-id="5"></pic8>
+          <pic8 class="" data-id="5" @pic8Click="Click()" @pic8Mouseover="Mouseover()" @pic8Fresh="Fresh()" @pic8Dblclick="pic8dblclick()"></pic8>
         </div>
-      </div>
+      </div>  
     </div>
-    <upld></upld>
+
+  
   </div>
 </template>
 
@@ -153,6 +188,18 @@ export default {
       g1sShow4: true,
       g1sShow5: true,
       cla: false,
+      ////////////////////////////////////
+      p1:false,
+      p2:false,
+      p4:false,
+      p5:false,
+      p6:false,
+      p7:false,
+      p8:false,
+      p9:false,
+      p10:false,
+      p11:false,
+      oTopShow:false
     };
   },
   components: {
@@ -304,6 +351,153 @@ export default {
       this.val = !this.val;
       this.cla = !this.cla;
     },
+    updateCity(){
+      // console.log("hello");
+    },
+    Click(){
+      this.$refs.audio.play();
+    },
+    Mouseover(){
+      this.$refs.audioOne.play();
+    },
+    Fresh(){
+      this.$refs.audioTwo.play();
+    },
+    //////
+    pic1dblclick(){
+       this.p1=true
+       this.p2=false  
+       this.p4=false
+       this.p5=false
+       this.p6=false
+       this.p7=false
+       this.p8=false
+       this.p9=false
+       this.p10=false 
+       this.p11=false
+       this.oTopShow=true
+    },
+    pic2dblclick(){
+       this.p1=false
+       this.p2=true  
+       this.p4=false
+       this.p5=false
+       this.p6=false
+       this.p7=false
+       this.p8=false
+       this.p9=false
+       this.p10=false 
+       this.p11=false
+       this.oTopShow=true
+    },
+    pic4Dblclick(){
+       this.p1=false
+       this.p2=false  
+       this.p4=true
+       this.p5=false
+       this.p6=false
+       this.p7=false
+       this.p8=false
+       this.p9=false
+       this.p10=false 
+       this.p11=false
+       this.oTopShow=true
+    },
+    pic5dblclick(){
+       this.p1=false
+       this.p2=false  
+       this.p4=false
+       this.p5=true
+       this.p6=false
+       this.p7=false
+       this.p8=false
+       this.p9=false
+       this.p10=false 
+       this.p11=false
+       this.oTopShow=true
+    },
+    pic6Dblclick(){
+       this.p1=false
+       this.p2=false  
+       this.p4=false
+       this.p5=false
+       this.p6=true
+       this.p7=false
+       this.p8=false
+       this.p9=false
+       this.p10=false 
+       this.p11=false
+       this.oTopShow=true
+    },
+    pic7dblclick(){
+       this.p1=false
+       this.p2=false  
+       this.p4=false
+       this.p5=false
+       this.p6=false
+       this.p7=true
+       this.p8=false
+       this.p9=false
+       this.p10=false 
+       this.p11=false
+       this.oTopShow=true
+    },
+    pic8dblclick(){
+       this.p1=false
+       this.p2=false  
+       this.p4=false
+       this.p5=false
+       this.p6=false
+       this.p7=false
+       this.p8=true
+       this.p9=false
+       this.p10=false 
+       this.p11=false
+      this.oTopShow=true
+    },
+    pic9dblclick(){
+       this.p1=false
+       this.p2=false  
+       this.p4=false
+       this.p5=false
+       this.p6=false
+       this.p7=false
+       this.p8=false
+       this.p9=true
+       this.p10=false 
+       this.p11=false
+      this.oTopShow=true
+    },
+    pic10dblclick(){
+       this.p1=false
+       this.p2=false  
+       this.p4=false
+       this.p5=false
+       this.p6=false
+       this.p7=false
+       this.p8=false
+       this.p9=false
+       this.p10=true 
+       this.p11=false
+      this.oTopShow=true
+    },
+    pic11dblclick(){
+    this.p1=false
+       this.p2=false  
+       this.p4=false
+       this.p5=false
+       this.p6=false
+       this.p7=false
+       this.p8=false
+       this.p9=false
+       this.p10=false 
+       this.p11=true
+      this.oTopShow=true
+    },
+    close(){
+      // console.log('11');
+       this.oTopShow=false
+    }
   },
   watch: {
     "$store.state.component5.maskShow"() {

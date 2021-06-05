@@ -12,9 +12,6 @@ export default {
   mounted () {
     this.drawChart()  
   },
-  created() {
-    this.bd()
-  },
   data(){
     return{
        namex:''
@@ -24,9 +21,6 @@ export default {
     ...mapState('component3', ['com3']),
   },
   methods: {
-    bd(){
-
-    },
     drawChart () {
       const myChart = this.$echarts.init(document.getElementById('pic6'))
       const geoCoordMap = {
@@ -376,10 +370,10 @@ export default {
         series: series
       }
       myChart.setOption(option)
-    }, 
-   chang(){
- 
-  } 
+    },
+    fresh(){
+      this.$emit('pic3Fresh');
+    } 
   },
   watch:{
    namex(newval,old){
@@ -396,7 +390,7 @@ export default {
 
 
   this.$indicator.open({text:'加载中...'})
-  //实际参数接口post（"http://192.168.193.65:8000/index/", formData, config）
+  //实际参数接口post("http://192.168.193.65:8000/index/", formData, config)
   //  this.$http.get("http://127.0.0.1:8080/pic3.json").then((res) => {
   this.$http.post("http://192.168.193.209:8000/index/", formData, config).then((res) => {
    this.$indicator.close()
@@ -419,8 +413,8 @@ export default {
     component3.throughput=throughput
 
     this.$store.commit('component3/setcom3',component3)
-    // console.log(this.com3);
-    // console.log(store)
+    
+    this.fresh()
    })
    }
 }

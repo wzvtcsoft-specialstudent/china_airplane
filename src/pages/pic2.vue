@@ -1,6 +1,6 @@
 <template>
   <!-- <div id="app"> -->
-  <div id="pic2" style="width: 100%; height: 100%"></div>
+  <div id="pic2" style="width: 100%; height: 100%" @dblclick='dblclick()'></div>
   <!-- </div> -->
 </template>
 
@@ -232,6 +232,9 @@ export default {
       };
       myChart.setOption(option);
     },
+    dblclick(){
+      this.$emit('pic2Dblclick');
+    }
   },
   watch: {
     "$store.state.component5.name5"() {

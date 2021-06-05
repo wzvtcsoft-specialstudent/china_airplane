@@ -1,5 +1,5 @@
 <template>
-  <div id="tab">
+  <div id="tab" @dblclick='dblclick()'>
     <table class="top">
       <thead>
         <tr>
@@ -14,7 +14,7 @@
       <table class="tab-scroll">
       <vue-seamless-scroll :data="record" :class-option="optionSingleHeightTime" class="seamless-warp" id="dom" :class="{scrollPa:paActive}">
         <tbody>
-          <tr v-for="(item, index) in record" :key="index" @click="listen(item.flight,index)" :class="line == index ? 'contactsbg' : ''">
+          <tr v-for="(item, index) in record" :key="index" @click="listen(item.flight,index);click()" :class="line == index ? 'contactsbg' : ''" @mouseover="mouseover()">
             <td style="width:30%">{{ item.flight }}</td>
             <td>{{ item.company }}</td>
             <td>{{ item.average }}</td>
@@ -43,6 +43,8 @@ export default {
   // },
   mounted() {
     this.chang()
+    
+    this.record=this.com5
   },
   computed: {
     ...mapState("component5", ["com5"]),
@@ -73,27 +75,19 @@ export default {
     },
     chang(){      
       var a = document.getElementById("dom").children[0].children[1].remove();  
-    }
-    // chang() {
-    //   var scrollTab = document.getElementsByClassName("tab-scroll")[0]; //滚动的表格
-    //   var tbody = scrollTab.getElementsByTagName("tbody")[0]; //tbody
-
-    //   var speed = scrollTab.getElementsByTagName("td")[0].offsetHeight + 1.2; //行高(滚动速度)	 加上表格边框
-    //   var count = 0; //要追加到表格底部的行索引
-    //   setInterval(scrollTop, 2000); //每隔1.5秒滚动一次
-
-    //   //实现表格向上滚动
-    //   function scrollTop() {
-    //     var t = scrollTab.offsetTop; //top值
-    //     scrollTab.style.top = t - speed + "px"; //滚动
-
-    //     var trs = tbody.getElementsByTagName("tr"); //每次都重新取出所有内容行
-    //     var newTr = trs[count].cloneNode(true); //复制行，得到新的行对象
-    //     //将滚动的行追加到表格底部
-    //     tbody.appendChild(newTr);
-    //     count++;
-    //   }
-    // },
+    },
+    click(){
+       this.$emit('pic7Click');
+    },
+    mouseover(){
+       this.$emit('pic7Mouseover');
+    },
+    fresh(){
+      this.$emit('pic7Fresh');
+    },
+    dblclick(){
+      this.$emit('pic7Dblclick');
+    }  
   },
   watch: {
     "$store.state.component5.com5"() {
@@ -134,15 +128,10 @@ export default {
           }
 
           this.$store.commit("component7/setcom7", list);
-          // console.log(this.com5);
-          // console.log(list);
+          
+          this.fresh()
         });
     },
-    // record() {
-    //   this.$nextTick(() => {
-    //     this.chang();
-    //   });
-    // },
   },
 };
 </script>

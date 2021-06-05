@@ -1,5 +1,5 @@
 <template>
-  <div id="tab">
+  <div id="tab" @dblclick='dblclick()'>
     <table class="top">
       <thead>
         <tr>
@@ -16,7 +16,8 @@
             v-for="(item, index) in record"
             :key="index"
             :class="line == index ? 'contactsbg' : ''"
-            @click="listen(item.flight, index)"
+            @click="listen(item.flight, index);click()"
+            @mouseover="mouseover()"
           >
             <td style="width:50%">{{ item.flight }}</td>
             <td>{{ item.company }}</td>
@@ -40,6 +41,9 @@ export default {
       line: -1,
     };
   },
+  mounted() {
+     this.record=this.com7
+  },
   computed: {
     ...mapState("component7", ["com7","linex"]),
   },
@@ -51,25 +55,18 @@ export default {
       this.line = index;
       this.$store.commit("component7/setlinex",index);
     },
-    // changOne() {
-    //   var scrollTabOne = document.getElementsByClassName("tab-scrollone")[0]; //滚动的表格
-    //   var tbody = scrollTabOne.getElementsByTagName("tbody")[0]; //tbody
-
-    //   var speedone = scrollTabOne.getElementsByTagName("td")[0].offsetHeight + 1.2; //行高(滚动速度)	 加上表格边框
-    //   var countone = 0; //要追加到表格底部的行索引
-    //   setInterval(scrollTopOne, 2000); //每隔1.5秒滚动一次
-
-    //   //实现表格向上滚动
-    //   function scrollTopOne() {
-    //     var t = scrollTabOne.offsetTop; //top值
-    //     scrollTabOne.style.top = t - speedone + "px"; //滚动
-    //     var trs = tbody.getElementsByTagName("tr"); //每次都重新取出所有内容行
-    //     var newTr = trs[countone].cloneNode(true); //复制行，得到新的行对象
-    //     //将滚动的行追加到表格底部
-    //     tbody.appendChild(newTr);
-    //     countone++;
-    //   }
-    // },
+    click(){
+       this.$emit('pic8Click');
+    },
+    mouseover(){
+       this.$emit('pic8Mouseover');
+    },
+    fresh(){
+      this.$emit('pic8Fresh');
+    },
+    dblclick(){
+      this.$emit('pic8Dblclick');
+    }   
   },
   watch: {
     "$store.state.component7.com7"() {
@@ -166,6 +163,8 @@ export default {
           // this.$store.commit("component8/setdataFore", dataFore);
           this.$store.commit("component8/setnameOne",newVal);
           // this.$store.commit("component8/setnameTwo",newVal);
+
+          this.fresh()
         });
     },
     // record(){
