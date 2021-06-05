@@ -55,7 +55,7 @@
     >
       10
     </button>
-    <div id="pic12" style="width: 100%; height: 100%"></div>
+    <div id="pic12" style="width: 100%; height: 100%" @dblclick='dblclick()'></div>
   </div>
   <!-- </div> -->
 </template>
@@ -416,6 +416,9 @@ export default {
 
         });
     },
+    dblclick(){
+      this.$emit('pic4Dblclick');
+    }
   },
   watch: {
     "$store.state.component8.dataTwo_a"() {

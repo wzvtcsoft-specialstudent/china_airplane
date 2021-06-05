@@ -317,7 +317,6 @@ export default {
             }
           }
           // console.log(list);
-
           this.$store.commit("component5/setcom5", list);
           this.$store.commit("component5/setname5", newVal);
           

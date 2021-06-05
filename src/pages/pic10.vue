@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @dblclick='dblclick()'>
     <span class="hang">航空公司</span>
     <div class="btnall">
       <table class="tab-scroll" cellspacing="5px" cellpadding="10px">
@@ -15,17 +15,21 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
 // import echarts from 'echarts'
 export default {
   name: "app",
+  computed: {
+    ...mapState("component10", ["month","number"]),
+  },
   mounted() {
     this.drawChart();
   },
   data() {
     return {
       data:['AC','AD','AE','AF','BA','BB','BC','BE','CA','CD','CE','CF','CG','DD','DF','EA','EB','ED','EF','EG','FB','FE','FG','GE','GG'],
-      month:[],
-      number:[],
+      // month:[],
+      // number:[],
       pan:'',
       line:-1
     }
@@ -97,10 +101,17 @@ export default {
           dataOne.push(store[index][0])
           dataTwo.push(store[index][1])
         }
-         this.month=dataOne
-         this.number=dataTwo
+
+        this.$store.commit("component10/setmonth", dataOne);
+        this.$store.commit("component10/setnumber", dataTwo);
+        //  this.month=dataOne
+        //  this.number=dataTwo
          this.drawChart()
+        
         });
+    },
+    dblclick(){
+      this.$emit('pic10Dblclick');
     }
   },
 };

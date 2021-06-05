@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app"  @dblclick='dblclick()'>
     <span class="hang">航空公司</span>
     <div class="btnall">
       <table class="tab-scroll" cellspacing="5px" cellpadding="10px">
@@ -16,16 +16,20 @@
 
 <script>
 // import echarts from 'echarts'
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "app",
+   computed: {
+    ...mapState("component11", ["month","number"]),
+  },
   mounted() {
     this.drawChart();
   },
   data() {
     return {
       data:['AC','AD','AE','AF','BA','BB','BC','BE','CA','CD','CE','CF','CG','DD','DF','EA','EB','ED','EF','EG','FB','FE','FG','GE','GG'],
-      month:[],
-      number:[],
+      // month:[],
+      // number:[],
       pan:'',
       line:-1
     }
@@ -85,7 +89,7 @@ export default {
       // console.log(str);
       formData.append("company_name_om", name);
       this.$indicator.open({ text: "加载中..." });
-      // this.$http.get("http://127.0.0.1:8080/pic8.json") 
+      // this.$http.get("http://127.0.0.1:8080/pic11.json") 
       this.$http.post("http://192.168.193.209:8000/index/", formData, config)
       .then((res) => {
           this.$indicator.close();
@@ -96,10 +100,16 @@ export default {
           dataOne.push(store[index][0])
           dataTwo.push(store[index][1])
         }
-         this.month=dataOne
-         this.number=dataTwo
+
+        this.$store.commit("component11/setmonth", dataOne);
+        this.$store.commit("component11/setnumber", dataTwo);
+        //  this.month=dataOne
+        //  this.number=dataTwo
          this.drawChart()
         });
+    },
+    dblclick(){
+      this.$emit('pic11Dblclick');
     }
   },
 };

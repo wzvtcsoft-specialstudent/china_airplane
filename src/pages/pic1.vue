@@ -211,7 +211,7 @@ export default {
       myChart.setOption(option);
     },
     pull(){
-      this.$indicator.open({ text: "加载中..." });
+      // this.$indicator.open({ text: "加载中..." });
       // 实际参数接口get（"http://192.168.193.65:8000/a"）
       this.$http.get("http://192.168.193.209:8000/a").then((res) => {
         // this.$http.get("http://127.0.0.1:8080/pic1.json").then((res) => {

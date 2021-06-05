@@ -43,6 +43,8 @@ export default {
   // },
   mounted() {
     this.chang()
+    
+    this.record=this.com5
   },
   computed: {
     ...mapState("component5", ["com5"]),

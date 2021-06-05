@@ -41,6 +41,9 @@ export default {
       line: -1,
     };
   },
+  mounted() {
+     this.record=this.com7
+  },
   computed: {
     ...mapState("component7", ["com7","linex"]),
   },

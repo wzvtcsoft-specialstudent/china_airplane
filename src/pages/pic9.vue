@@ -5,17 +5,21 @@
       <button class="btn" style="left: 170px" @click="btn('前5')">前五</button>
       <button class="btn" @click="btn('后5')">后五</button>
     </div>
-    <div id="pic11" style="width: 100%; height: 100%"></div>
+    <div id="pic11" style="width: 100%; height: 100%" @dblclick='dblclick()'></div>
   </div>
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
 import echarts from "echarts";
 export default {
   name: "app",
+  computed: {
+    ...mapState("component9", ["data"]),
+  },
   data() {
     return {
-      data: {},
+      // data: {},
     };
   },
   mounted() {
@@ -221,8 +225,6 @@ export default {
       };
       myChart.setOption(option);
     },
-
-
     btn(name) {
       let config = {
         headers: {
@@ -255,9 +257,14 @@ export default {
           component3.sortie = sortie;
 
           this.data = component3;
+
+          this.$store.commit("component9/setdata", component3);
           this.drawChart();
         });
     },
+    dblclick(){
+      this.$emit('pic9Dblclick');
+    }
   },
 };
 </script>
